@@ -51,6 +51,7 @@ NSString *const RCTWebViewBridgeSchema = @"wvb";
 @property (nonatomic, copy) RCTDirectEventBlock onLoadingError;
 @property (nonatomic, copy) RCTDirectEventBlock onShouldStartLoadWithRequest;
 @property (nonatomic, copy) RCTDirectEventBlock onBridgeMessage;
+@property (nonatomic, copy) RCTDirectEventBlock onProgress;
 
 @end
 
@@ -89,6 +90,19 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
 - (void)reload
 {
   [_webView reload];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+  if ([keyPath isEqualToString:@"estimatedProgress"]) {
+    if (!_onProgress) {
+      return;
+    }
+    _onProgress(@{@"progress": [change objectForKey:NSKeyValueChangeNewKey]});
+  }
 }
 
 - (void)sendToBridge:(NSString *)message
@@ -239,7 +253,16 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
     _webView.navigationDelegate = self;
     _webView.allowsBackForwardNavigationGestures = true;
 
+    [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
+
     [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
+}
+
+- (void)dealloc
+{
+  [_webView removeObserver:self forKeyPath:@"estimatedProgress"];
+  _webView.navigationDelegate = nil;
+  _webView.UIDelegate = nil;
 }
 
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
