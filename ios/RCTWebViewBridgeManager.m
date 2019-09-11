@@ -55,7 +55,7 @@ RCT_EXPORT_VIEW_PROPERTY(onBridgeMessage, RCTDirectEventBlock)
 - (NSDictionary<NSString *, id> *)constantsToExport
 {
   return @{
-    @"JSNavigationScheme": RCTJSNavigationScheme,
+    // @"JSNavigationScheme": RCTJSNavigationScheme,
     @"NavigationType": @{
       @"LinkClicked": @(UIWebViewNavigationTypeLinkClicked),
       @"FormSubmitted": @(UIWebViewNavigationTypeFormSubmitted),

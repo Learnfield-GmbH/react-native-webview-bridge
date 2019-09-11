@@ -20,7 +20,7 @@
  *
  *   window.location.href = RCTJSNavigationScheme + '://hello'
  */
-extern NSString *const RCTJSNavigationScheme;
+// extern NSString *const RCTJSNavigationScheme;
 
 @protocol RCTWebViewBridgeDelegate <NSObject>
 

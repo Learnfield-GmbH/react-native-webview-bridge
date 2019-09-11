@@ -57,7 +57,7 @@ var NavigationType = {
   other: RCTWebViewBridgeManager.NavigationType.Other,
 };
 
-var JSNavigationScheme = RCTWebViewBridgeManager.JSNavigationScheme;
+// var JSNavigationScheme = RCTWebViewBridgeManager.JSNavigationScheme;
 
 type ErrorEvent = {
   domain: any;
@@ -94,7 +94,7 @@ var defaultRenderError = (errorDomain, errorCode, errorDesc) => (
  */
 var WebViewBridge = createReactClass({
   statics: {
-    JSNavigationScheme: JSNavigationScheme,
+    // `JSNavigationScheme: JSNavigationScheme,
     NavigationType: NavigationType,
   },
 
