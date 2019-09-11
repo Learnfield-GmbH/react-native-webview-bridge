@@ -48,14 +48,14 @@ var WebViewBridgeState = keyMirror({
   ERROR: null,
 });
 
-var NavigationType = {
-  click: RCTWebViewBridgeManager.NavigationType.LinkClicked,
-  formsubmit: RCTWebViewBridgeManager.NavigationType.FormSubmitted,
-  backforward: RCTWebViewBridgeManager.NavigationType.BackForward,
-  reload: RCTWebViewBridgeManager.NavigationType.Reload,
-  formresubmit: RCTWebViewBridgeManager.NavigationType.FormResubmitted,
-  other: RCTWebViewBridgeManager.NavigationType.Other,
-};
+// var NavigationType = {
+//   click: RCTWebViewBridgeManager.NavigationType.LinkClicked,
+//   formsubmit: RCTWebViewBridgeManager.NavigationType.FormSubmitted,
+//   backforward: RCTWebViewBridgeManager.NavigationType.BackForward,
+//   reload: RCTWebViewBridgeManager.NavigationType.Reload,
+//   formresubmit: RCTWebViewBridgeManager.NavigationType.FormResubmitted,
+//   other: RCTWebViewBridgeManager.NavigationType.Other,
+// };
 
 // var JSNavigationScheme = RCTWebViewBridgeManager.JSNavigationScheme;
 
@@ -95,7 +95,7 @@ var defaultRenderError = (errorDomain, errorCode, errorDesc) => (
 var WebViewBridge = createReactClass({
   statics: {
     // `JSNavigationScheme: JSNavigationScheme,
-    NavigationType: NavigationType,
+    // NavigationType: NavigationType,
   },
 
   propTypes: {

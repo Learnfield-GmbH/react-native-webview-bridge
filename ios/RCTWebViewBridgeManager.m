@@ -56,14 +56,14 @@ RCT_EXPORT_VIEW_PROPERTY(onBridgeMessage, RCTDirectEventBlock)
 {
   return @{
     // @"JSNavigationScheme": RCTJSNavigationScheme,
-    @"NavigationType": @{
-      @"LinkClicked": @(UIWebViewNavigationTypeLinkClicked),
-      @"FormSubmitted": @(UIWebViewNavigationTypeFormSubmitted),
-      @"BackForward": @(UIWebViewNavigationTypeBackForward),
-      @"Reload": @(UIWebViewNavigationTypeReload),
-      @"FormResubmitted": @(UIWebViewNavigationTypeFormResubmitted),
-      @"Other": @(UIWebViewNavigationTypeOther)
-    },
+    // @"NavigationType": @{
+    //   @"LinkClicked": @(UIWebViewNavigationTypeLinkClicked),
+    //   @"FormSubmitted": @(UIWebViewNavigationTypeFormSubmitted),
+    //   @"BackForward": @(UIWebViewNavigationTypeBackForward),
+    //   @"Reload": @(UIWebViewNavigationTypeReload),
+    //   @"FormResubmitted": @(UIWebViewNavigationTypeFormResubmitted),
+    //   @"Other": @(UIWebViewNavigationTypeOther)
+    // },
   };
 }
 
